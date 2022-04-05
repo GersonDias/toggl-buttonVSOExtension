@@ -20,7 +20,7 @@ router.get('/', function (req, res, next) {
 router.get('/getUserData', function (req, res, next) {
     var https = require('https');
     var options = {
-        host: 'toggl.com',
+        host: 'api.track.toggl.com',
         path: '/api/v8/me?with_related_data=true',
         headers: { 'Authorization': 'Basic ' + new Buffer(req.query['apikey'] + ':api_token').toString('base64') },
     };
@@ -48,7 +48,7 @@ router.put('/stopTimer', function(req, res, next){
     var https = require('https');
 
     var options = {
-        host: 'toggl.com',
+        host: 'api.track.toggl.com',
         path: '/api/v8/time_entries/' + req.body.timeEntryId + '/stop',
         headers: { 'Authorization': 'Basic ' + new Buffer(req.body.apikey + ':api_token').toString('base64'),
                    'Content-Type': 'application/json' },
@@ -74,7 +74,7 @@ router.delete('/discardTimer', function(req, res, next){
     var https = require('https');
     
     var options = {
-        host: 'toggl.com',
+        host: 'api.track.toggl.com',
         path: '/api/v8/time_entries/' + req.body.timeEntryId,
         headers: { 'Authorization': 'Basic ' + new Buffer(req.body.apikey + ':api_token').toString('base64'),
                    'Content-Type': 'application/json' },
@@ -120,7 +120,7 @@ router.post('/startTimer', function (req, res, next) {
         }});
     
     var options = {
-        host: 'toggl.com',
+        host: 'api.track.toggl.com',
         path: '/api/v8/time_entries/start',
         headers: {
             'Authorization': 'Basic ' + new Buffer(req.body.apikey + ':api_token').toString('base64'),
