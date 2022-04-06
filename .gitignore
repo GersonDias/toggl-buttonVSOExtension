@@ -32,3 +32,6 @@ node_modules
 
 #settings.vset.json -> Publish settings for Visual Studio
 settings.vset.json
+
+.vscode
+.settings
